@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-hQQUYoIXAFyCV47QNisOEVdoujmqmgHckYK2721Mnfc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-397dcoov4I7Ycj2E/6WejpY2SPmhLW03/S3d9svylX8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%232f5d50%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27serif%27%3EW%3C/text%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -346,6 +346,7 @@ const store = { get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){r
 function renderPrograma(){
   const m = D.meta, g = D.graph;
   const totP = m.clases.reduce((a,c)=>a+c.paginas,0), totV = m.clases.reduce((a,c)=>a+c.video,0);
+  const minV = Math.min(...m.clases.map(c=>c.video)), maxV = Math.max(...m.clases.map(c=>c.video));
   const avgP = Math.round(totP/15), maxP = Math.max(...m.clases.map(c=>c.paginas)), minP = Math.min(...m.clases.map(c=>c.paginas));
   let h = `<div class="eyebrow">Seminario de 15 sesiones</div>
   <h1>La formación de discípulos</h1>
@@ -360,7 +361,7 @@ function renderPrograma(){
   }
   h += `</div>
   <h2>Equilibrio semana a semana</h2>
-  <p class="read">Cada clase pide entre ${minP} y ${maxP} páginas de lectura (promedio ${avgP}), un video de 45 a 50 minutos y la prueba de 20 preguntas. Las clases marcadas con nivel 3 traen conceptos más abstractos, por eso tienen lecturas algo más cortas o más narrativas. En total son ${totP} páginas y unas ${Math.round(totV/60)} horas de video.</p>
+  <p class="read">Cada clase pide entre ${minP} y ${maxP} páginas de lectura (promedio ${avgP}), entre ${minV} y ${maxV} minutos de video y la prueba de 20 preguntas. Las clases marcadas con nivel 3 traen conceptos más abstractos, por eso tienen lecturas algo más cortas o más narrativas. En total son ${totP} páginas y unas ${Math.round(totV/60)} horas de video.</p>
   <div class="scroll"><table><thead><tr><th>Clase</th><th>Bloque</th><th class="n">Páginas</th><th style="width:28%">Carga lectora</th><th class="n">Video</th><th class="n">Nivel</th><th class="n">Conceptos nuevos</th></tr></thead><tbody>`;
   for(const c of m.clases){ const b = blockOf(c.n); const nn = g.nodes.filter(x=>x.clase===c.n).length;
     h += `<tr><td>${c.n}. ${esc(c.titulo)}</td><td><span class="chip t-${b.tipo}">${TIPO[b.tipo]}</span></td><td class="n">${c.paginas}</td><td><div class="bar" style="width:${Math.round(c.paginas/maxP*100)}%"></div></td><td class="n">${c.video}′</td><td class="n">${'●'.repeat(c.nivel)}${'○'.repeat(3-c.nivel)}</td><td class="n">${nn}</td></tr>`; }
