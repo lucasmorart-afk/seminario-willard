@@ -1,4 +1,4 @@
-# Seminario Willard VIM
+# Escuela de líderes: V.I.M
 
 Seminario de 15 clases sobre la obra de Dallas Willard, guiado por el patrón VIM (Visión, Intención, Medios). Recurso educativo sin fines de lucro.
 

@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JI6T08adu7tStmb3dUwJ03BK4TXTJeEFQkvX+9mBzis='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-1N+A2XtaxSU4xYFaYaRu8aY2ti+A/qMi+HUgi23l9cc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%232f5d50%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27serif%27%3EW%3C/text%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Seminario de 15 clases sobre la obra de Dallas Willard, guiado por el patrón VIM (Visión, Intención, Medios).">
-<title>Seminario Willard VIM</title>
+<meta name="description" content="Escuela de líderes: V.I.M. La formación de discípulos en 15 clases sobre la obra de Dallas Willard, guiadas por el patrón VIM (Visión, Intención, Medios).">
+<title>Escuela de líderes: V.I.M</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* Layout: un cuaderno de seminario. Cabecera fija con pestañas; columna de lectura de ~68ch; el mapa conceptual atraviesa cada clase como una franja. */
@@ -288,7 +288,7 @@ header.top .wrap{position:relative}
 
 <header class="top"><div class="wrap">
   <a class="home" href="#programa" aria-label="Ir al inicio">W</a>
-  <div class="brand">Seminario Willard VIM<small>15 clases · Visión, Intención, Medios</small></div>
+  <div class="brand">Escuela de líderes: V.I.M<small>15 clases · Visión, Intención, Medios</small></div>
   <nav class="tabs" role="tablist" aria-label="Secciones">
     <button role="tab" id="tab-programa" data-v="programa">Programa</button>
     <button role="tab" id="tab-mapa" data-v="mapa">Mapa<span class="tab-long"> conceptual</span></button>
@@ -346,7 +346,7 @@ function renderPrograma(){
   const totP = m.clases.reduce((a,c)=>a+c.paginas,0), totV = m.clases.reduce((a,c)=>a+c.video,0);
   const avgP = Math.round(totP/15), maxP = Math.max(...m.clases.map(c=>c.paginas)), minP = Math.min(...m.clases.map(c=>c.paginas));
   let h = `<div class="eyebrow">Seminario de 15 sesiones</div>
-  <h1>Teología espiritual de Dallas Willard leída con el patrón VIM</h1>
+  <h1>La formación de discípulos</h1>
   <p class="lede">Cinco bloques de tres clases. Los dos primeros ubican a Willard en la historia y en su marco filosófico y teológico. Los tres siguientes recorren el VIM con el mismo peso: tres clases de Visión, tres de Intención y tres de Medios. Cada clase tiene guía de estudio, mapa con el punto donde está el estudiante, textos con edición y página, videos y una prueba de 20 preguntas.</p>
   <button class="btn primary cta" data-go="1">Empezar por la clase 1 →</button>
   <div class="blocks">`;
